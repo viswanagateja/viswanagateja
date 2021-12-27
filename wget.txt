@@ -1,0 +1,37 @@
+GNU Wget is a command-line utility for downloading files from the web. With Wget, you can download files using HTTP, HTTPS, and FTP protocols. Wget provides a number of options allowing you to download multiple files, resume downloads, limit the bandwidth, recursive downloads, download in the background, mirror a website, and much more.
+
+1. Installing wget on linux
+		sudo apt install wget
+
+		Syntax of command
+		wget [options] [url]
+2. To download tar.tz file from cdn.kernel.org
+
+	ex1:-  wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.17.2.tar.xz
+	it creates linux-4.17.2.tar.xz
+	ex2:-  wget http://www.gmail.com/
+			it creates index.html
+		if the file already exists, wget will add .N (number) at the end of the file name.
+
+3. To turn off the output, use the -q option.
+		Ex3:- wget -q http://www.gmail.com/
+
+4. To save the downloaded file under a different name, pass the -O option followed by the chosen name:
+Ex4:- wget -O latest-h.zip https://github.com/gohugoio/hugo/archive/master.zip
+The command above will save the latest hugo zip file from GitHub as latest-hugo.zip instead of its original name
+5.Creating a Mirror of a Website 
+To create a mirror of a website with wget, use the -m option. This will create a complete local copy of the website by following and downloading all internal links as well as the website resources (JavaScript, CSS, Images).
+	Ex5:- wget -m http://www.gmail.com/
+6. Downloading Multiple Files 
+If you want to download multiple files at once, use the -i option followed by the path to a local or external file containing a list of the URLs to be downloaded. Each URL needs to be on a separate line.
+The following example shows how to download the Arch Linux, Debian, and Fedora iso files using the URLs specified in the sample.txt
+wget -i sample.txt
+sample.txt
+https://gmail.com/
+https://youtube.com/
+http://www.facebook.com/
+
+7. Limiting the Download Speed 
+To limit the download speed, use the --limit-rate option. By default, the speed is measured in bytes/second. Append k for kilobytes, m for megabytes, and g for gigabytes.
+The following command will download the Go binary and limit the download speed to 1MB:
+wget --limit-rate=1m https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz
